@@ -15,14 +15,10 @@ import {CoreModule} from '../core-module';
  ********************************************/
 
 import {LoginComponent} from './login/login.component';
-import {TwoStepVerificationComponent} from './two-step-verification/two-step-verification.component';
-import {TwoStepSetupComponent} from './two-step-setup/two-step-setup.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    TwoStepVerificationComponent,
-    TwoStepSetupComponent
   ],
   imports: [
     CommonModule,
