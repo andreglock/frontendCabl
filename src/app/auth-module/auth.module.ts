@@ -14,7 +14,6 @@ import {CoreModule} from '../core-module';
  * Components.
  ********************************************/
 
-import {EmailVerificationComponent} from './email-verification/email-verification.component';
 import {LoginComponent} from './login/login.component';
 import {PasswordResetComponent} from './password-reset/password-reset.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
@@ -23,7 +22,6 @@ import {TwoStepSetupComponent} from './two-step-setup/two-step-setup.component';
 
 @NgModule({
   declarations: [
-    EmailVerificationComponent,
     LoginComponent,
     PasswordResetComponent,
     SignUpComponent,
@@ -37,7 +35,6 @@ import {TwoStepSetupComponent} from './two-step-setup/two-step-setup.component';
     CoreModule
   ],
   exports: [
-    EmailVerificationComponent,
     LoginComponent,
     PasswordResetComponent,
     SignUpComponent
