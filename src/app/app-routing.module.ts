@@ -21,34 +21,34 @@ const routes: Routes = [
   },
   {
     path: 'auth/two-step',
-    component: TwoStepVerificationComponent
+    component: TwoStepVerificationComponent // TODO: remove
   },
   {
     path: 'auth/sign-up',
-    component: SignUpComponent
+    component: SignUpComponent  // TODO: remove
   },
   {
     path: 'auth/password-reset',
-    component: PasswordResetComponent
+    component: PasswordResetComponent // TODO: remove
   },
   {
     path: 'auth/email-verification',
-    component: EmailVerificationComponent
+    component: EmailVerificationComponent  // TODO: remove
   },
   {
     path: 'auth/two-step-verification',
-    component: TwoStepVerificationComponent
+    component: TwoStepVerificationComponent // TODO: remove
   },
   {
     path: 'settings/change-password',
-    component: ChangePasswordComponent,
+    component: ChangePasswordComponent, // TODO: remove
     canActivate: [AuthGuard],
     resolve: {
       user: UserService
     }
   },
   {
-    path: 'settings/two-step-verification',
+    path: 'settings/two-step-verification', // TODO: remove
     component: TwoStepSetupComponent,
     canActivate: [AuthGuard],
     resolve: {

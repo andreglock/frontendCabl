@@ -2,7 +2,7 @@ import {Component, OnDestroy} from '@angular/core';
 import {Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError} from '@angular/router';
 import {Subscription} from 'rxjs';
 
-import {ApiService, AuthService} from './core-module/services';
+import {ApiService, AuthService} from './core-module';
 import {Title} from '@angular/platform-browser';
 import {environment} from '../environments/environment';
 

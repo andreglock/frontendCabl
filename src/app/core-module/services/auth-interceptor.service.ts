@@ -16,11 +16,10 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     request = request.clone({
       setHeaders: {
-        'authorization': `${this.authService.token || ''}`,
+        'authorization': `${this.authService.token || ''}`,  // TODO: maybe call it bearer token
         'client-time': new Date().toISOString()
       }
     });
-
 
     return next
       .handle(request)
@@ -35,7 +34,5 @@ export class AuthInterceptorService implements HttpInterceptor {
         return throwError(error);
 
       }));
-
-
   }
 }
