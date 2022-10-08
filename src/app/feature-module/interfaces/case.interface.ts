@@ -6,6 +6,6 @@ export interface ICase {
   aufenthaltstatus: string,
   krankenversicherung: string,
   notvallv: string,
-  medvers: string,
+  medivers: string,
   fachbereich: string,
 }
