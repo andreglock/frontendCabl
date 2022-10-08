@@ -24,15 +24,15 @@ const authRouting: Routes = [
       },
       {
         path: 'sign-up',
-        component: SignUpComponent
+        component: SignUpComponent // TODO: remove
       },
       {
         path: 'password-reset',
-        component: PasswordResetComponent
+        component: PasswordResetComponent // TODO: remove
       },
       {
         path: 'email-verification',
-        component: EmailVerificationComponent
+        component: EmailVerificationComponent // TODO: remove
       }
     ]
   }

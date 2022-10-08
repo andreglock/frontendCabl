@@ -40,7 +40,7 @@ export class LoginComponent {
               private userService: UserService) {
 
     if (this.authService.hasLoggedIn()) {
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/').then();
     }
     this.setupForms();
     setTimeout(() => {
@@ -48,7 +48,6 @@ export class LoginComponent {
     }, 175);
 
   }
-
 
   setupForms() {
 
@@ -78,7 +77,7 @@ export class LoginComponent {
     this.apiService.post('/auth/login', this.user.value)
       .subscribe(data => {
 
-        // Email verification is pending.
+        // Email verification is pending. TODO remove
         if (!data.emailVerified) {
           this.loading = false;
           this.message = '';
@@ -89,17 +88,17 @@ export class LoginComponent {
         }
 
 
-        // two step verification is enabled ask for code.
+        // two step verification is enabled ask for code. TODO remove
         if (data.twoStepVerificationEnabled) {
           this.authService.set(data.token);
           return this.router.navigateByUrl('/auth/two-step-verification');
         }
 
 
-        // normal login.
-        this.authService.set(data.token);
+        // normal login
+        this.authService.set(data.access_token);
         this.userService.set(data.user);
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/').then();
 
       }, error => {
 
@@ -112,7 +111,7 @@ export class LoginComponent {
 
   }
 
-  sendVerification() {
+  sendVerification() { // TODO: remove
     this.apiService.post('/auth/email-verification');
   }
 

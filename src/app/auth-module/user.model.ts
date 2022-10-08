@@ -2,6 +2,8 @@
  * User Model.
  */
 
+// use a interface  TODO
+
 export class User {
 
   _id?;
