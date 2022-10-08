@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {
   LoginComponent,
-  PasswordResetComponent,
   SignUpComponent, TwoStepSetupComponent,
   TwoStepVerificationComponent
 } from './auth-module';
@@ -24,10 +23,6 @@ const routes: Routes = [
   {
     path: 'auth/sign-up',
     component: SignUpComponent  // TODO: remove
-  },
-  {
-    path: 'auth/password-reset',
-    component: PasswordResetComponent // TODO: remove
   },
   {
     path: 'auth/two-step-verification',

@@ -15,7 +15,6 @@ import {CoreModule} from '../core-module';
  ********************************************/
 
 import {LoginComponent} from './login/login.component';
-import {PasswordResetComponent} from './password-reset/password-reset.component';
 import {SignUpComponent} from './sign-up/sign-up.component';
 import {TwoStepVerificationComponent} from './two-step-verification/two-step-verification.component';
 import {TwoStepSetupComponent} from './two-step-setup/two-step-setup.component';
@@ -23,7 +22,6 @@ import {TwoStepSetupComponent} from './two-step-setup/two-step-setup.component';
 @NgModule({
   declarations: [
     LoginComponent,
-    PasswordResetComponent,
     SignUpComponent,
     TwoStepVerificationComponent,
     TwoStepSetupComponent
@@ -36,7 +34,6 @@ import {TwoStepSetupComponent} from './two-step-setup/two-step-setup.component';
   ],
   exports: [
     LoginComponent,
-    PasswordResetComponent,
     SignUpComponent
   ],
   providers: []
