@@ -47,6 +47,17 @@ const ELEMENT_DATA: ICase[] = [
     medivers: 'data',
     fachbereich: 'data',
   },
+  {
+    datum: new Date(), 
+    volljarig: 'nicht', 
+    geschlecht: 'weiblich', 
+    wohnsituation: 'nicht gefracht',
+    aufenthaltstatus: 'nein',
+    krankenversicherung: 'nein',
+    notvallv: 'data',
+    medivers: 'ja',
+    fachbereich: 'unklar',
+  },
 
 ];
 
