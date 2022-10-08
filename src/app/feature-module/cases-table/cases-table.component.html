@@ -6,7 +6,7 @@
 
     <ng-container matColumnDef="datum">
       <mat-header-cell *matHeaderCellDef> Datum </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.datum}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.datum | date:'dd/MM/yy' }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="volljarig">
