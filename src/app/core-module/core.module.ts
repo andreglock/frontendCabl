@@ -13,7 +13,6 @@ import {
 
 import {
   AuthGuard,
-  AccountReadyGuard
 } from './guards';
 
 @NgModule({
@@ -30,7 +29,6 @@ import {
     AuthService,
     UserService,
     AuthGuard,
-    AccountReadyGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
