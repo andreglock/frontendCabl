@@ -30,15 +30,7 @@ TODO: remove sign up and forgot pw
     <div fxLayout="row"
          fxLayoutAlign="start center">
       <h1>Login</h1>
-
       <span fxFlex></span>
-
-      <div fxLayout="row"
-           fxLayoutAlign="center center"
-           class="sign-up">
-        <p>Don’t have an account? </p>
-        <a routerLink="/auth/sign-up">Sign Up</a>
-      </div>
     </div>
 
 
@@ -70,23 +62,12 @@ TODO: remove sign up and forgot pw
           <strong>required</strong>
         </mat-error>
       </mat-form-field>
-
     </div>
-
 
     <!--action buttons-->
     <div fxLayout="row"
          class="action-buttons"
          fxLayoutAlign="start center">
-      <button mat-button
-              app-no-ink
-              [disabled]="loading"
-              type="button"
-              routerLink="/auth/password-reset"
-              class="secondary-option">
-        Forgot Password
-      </button>
-
       <span fxFlex></span>
 
       <button mat-raised-button

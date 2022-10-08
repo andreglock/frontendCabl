@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {trigger, state, transition, animate, style} from '@angular/animations';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 import {environment} from '../../../environments/environment';
 
-import {AlertService, ApiService, UtilService, UserService, AuthService} from '../../core-module/services';
+import {AlertService, ApiService, AuthService, UserService, UtilService} from '../../core-module/services';
 
 @Component({
   selector: 'app-login',
@@ -61,39 +61,15 @@ export class LoginComponent {
 
   }
 
-  /****************************************************************************************************************
-   *  LOGIN
-   *****************************************************************************************************************/
-
-
   /**
-   * Email/Password login.
+   * email/Password login.
    */
   login() {
-
     this.loading = true;
     this.message = 'logging in...';
 
     this.apiService.post('/auth/login', this.user.value)
       .subscribe(data => {
-
-        // Email verification is pending. TODO remove
-        if (!data.emailVerified) {
-          this.loading = false;
-          this.message = '';
-          this.user.reset();
-          return this.alertService.info(`
-            Please verify your email first. Verification email sent.
-          `);
-        }
-
-
-        // two step verification is enabled ask for code. TODO remove
-        if (data.twoStepVerificationEnabled) {
-          this.authService.set(data.token);
-          return this.router.navigateByUrl('/auth/two-step-verification');
-        }
-
 
         // normal login
         this.authService.set(data.access_token);
@@ -106,14 +82,6 @@ export class LoginComponent {
         this.message = '';
         this.user.reset();
         this.alertService.error(error);
-
       });
-
   }
-
-  sendVerification() { // TODO: remove
-    this.apiService.post('/auth/email-verification');
-  }
-
-
 }

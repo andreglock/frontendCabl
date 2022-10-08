@@ -9,10 +9,7 @@
 
 import {Routes, RouterModule} from '@angular/router';
 
-import {EmailVerificationComponent} from './email-verification/email-verification.component';
 import {LoginComponent} from './login/login.component';
-import {PasswordResetComponent} from './password-reset/password-reset.component';
-import {SignUpComponent} from './sign-up/sign-up.component';
 
 const authRouting: Routes = [
   {
@@ -22,18 +19,6 @@ const authRouting: Routes = [
         path: 'login',
         component: LoginComponent
       },
-      {
-        path: 'sign-up',
-        component: SignUpComponent // TODO: remove
-      },
-      {
-        path: 'password-reset',
-        component: PasswordResetComponent // TODO: remove
-      },
-      {
-        path: 'email-verification',
-        component: EmailVerificationComponent // TODO: remove
-      }
     ]
   }
 ];

@@ -53,5 +53,4 @@ export class AlertService {
     this.snackBar.open(message, 'OK', this.config);
 
   }
-
 }

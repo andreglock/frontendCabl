@@ -23,31 +23,6 @@ export class UtilService {
   }
 
   /**
-   * Fetch list of countries form backend.
-   * @param country
-   */
-  countries(country: string): Observable<any> {
-
-    return this.apiService.get(`/location/country?country=${country}`);
-
-  }
-
-
-  /**
-   * Fetch list cities for a query along with country.
-   * @param country
-   * @param city
-   */
-  cities(country: string, city: string): Observable<any> {
-
-    return this.apiService.get(
-      `/location/country?country=${country}&city=${city}`
-    );
-
-  }
-
-
-  /**
    * Scroll to top of page.
    */
   scrollToTop() {
@@ -57,5 +32,4 @@ export class UtilService {
       behavior: 'smooth'
     });
   }
-
 }

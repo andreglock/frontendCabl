@@ -2,14 +2,14 @@ import {Injectable} from '@angular/core';
 import {Resolve} from '@angular/router';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 
-import {User} from '../../auth-module/user.model';
 import {AlertService} from './alerts.service';
 import {ApiService} from './api.service';
+import {IUser} from '../../auth-module/user.model';
 
 @Injectable()
 export class UserService implements Resolve<Observable<any>> {
 
-  public currentUser = new BehaviorSubject<User>(new User(null));
+  public currentUser = new BehaviorSubject<IUser | undefined>(undefined);
   private loading = true;
 
   constructor(private apiService: ApiService,
@@ -18,7 +18,7 @@ export class UserService implements Resolve<Observable<any>> {
   }
 
   resolve(): Observable<any> {
-    if (this.currentUser.getValue()._id) {
+    if (this.currentUser.getValue().email) {
       return Observable.create((observer) => {
 
         observer.next(this.currentUser.getValue());
@@ -31,9 +31,8 @@ export class UserService implements Resolve<Observable<any>> {
   }
 
   load(): Observable<any> {
-
     this.loading = true;
-    const user_id = localStorage.getItem('user');
+    const user_id = localStorage.getItem('email');
     if (!user_id) {
       this.apiService.authenticationFailEvent.emit(401);
       return this.currentUser.asObservable();
@@ -42,10 +41,10 @@ export class UserService implements Resolve<Observable<any>> {
     return Observable.create((observer) => {
 
       this.apiService.get(`/users/${user_id}`)
-        .subscribe(data => {
+        .subscribe((user: IUser) => {
 
           this.loading = false;
-          this.currentUser.next(new User(data));
+          this.currentUser.next(user);
           observer.next(this.currentUser.getValue());
           observer.complete();
 
@@ -60,14 +59,14 @@ export class UserService implements Resolve<Observable<any>> {
 
   }
 
-  set(data) {
-    localStorage.setItem('user', data._id);
-    this.currentUser.next(new User(data));
+  set(data: IUser) {
+    localStorage.setItem('email', data.email);
+    this.currentUser.next(data);
   }
 
 
   reset() {
-    this.currentUser.next(new User({}));
+    this.currentUser.next(undefined);
   }
 
 
@@ -86,7 +85,7 @@ export class UserService implements Resolve<Observable<any>> {
       .subscribe(data => {
 
         context.loading = false;
-        this.currentUser.next(new User(data));
+        this.currentUser.next(data);
         context.userForm.enable();
         this.alertService.success('Changes Saved.');
 

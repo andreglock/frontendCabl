@@ -16,7 +16,7 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     request = request.clone({
       setHeaders: {
-        'authorization': `${this.authService.token || ''}`,  // TODO: maybe call it bearer token
+        'bearer-token': `${this.authService.token || ''}`,  // TODO: maybe call it bearer token
         'client-time': new Date().toISOString()
       }
     });

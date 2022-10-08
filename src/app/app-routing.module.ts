@@ -2,12 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import {
-  ChangePasswordComponent,
-  EmailVerificationComponent,
   LoginComponent,
-  PasswordResetComponent,
-  SignUpComponent, TwoStepSetupComponent,
-  TwoStepVerificationComponent
 } from './auth-module';
 
 import {AuthGuard} from './core-module/guards';
@@ -18,42 +13,6 @@ const routes: Routes = [
   {
     path: 'auth/login',
     component: LoginComponent
-  },
-  {
-    path: 'auth/two-step',
-    component: TwoStepVerificationComponent // TODO: remove
-  },
-  {
-    path: 'auth/sign-up',
-    component: SignUpComponent  // TODO: remove
-  },
-  {
-    path: 'auth/password-reset',
-    component: PasswordResetComponent // TODO: remove
-  },
-  {
-    path: 'auth/email-verification',
-    component: EmailVerificationComponent  // TODO: remove
-  },
-  {
-    path: 'auth/two-step-verification',
-    component: TwoStepVerificationComponent // TODO: remove
-  },
-  {
-    path: 'settings/change-password',
-    component: ChangePasswordComponent, // TODO: remove
-    canActivate: [AuthGuard],
-    resolve: {
-      user: UserService
-    }
-  },
-  {
-    path: 'settings/two-step-verification', // TODO: remove
-    component: TwoStepSetupComponent,
-    canActivate: [AuthGuard],
-    resolve: {
-      user: UserService
-    }
   },
   {
     path: 'home',
