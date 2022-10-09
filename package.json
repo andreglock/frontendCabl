@@ -1,11 +1,12 @@
 {
-  "name": "master",
+  "type": "module",
+  "name": "main",
   "version": "0.0.0",
   "appName": "master-app",
   "apiName": "master-api/v1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node .\\src\\utils\\server.js | ng serve ",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
