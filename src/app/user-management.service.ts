@@ -18,10 +18,10 @@ export class UserManagementService {
   }
 
   public udpate(user: IUser): Observable<IUser | undefined> {
-    return this.apiService.post('/users', { user });
+    return this.apiService.patch(`/users/${user.email}`, { user });
   }
 
   public delete(user: IUser): Observable<void> {
-    return this.apiService.post('/users', { user });
+    return this.apiService.delete(`/users/${user.email}`);
   }
 }
