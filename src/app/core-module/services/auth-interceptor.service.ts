@@ -1,30 +1,33 @@
-import {Injectable} from '@angular/core';
-import {HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse} from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
-import {AuthService} from './auth.service';
+import { Injectable } from '@angular/core';
+import {
+  HttpInterceptor,
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpErrorResponse,
+} from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthInterceptorService implements HttpInterceptor {
-
-  constructor(public authService: AuthService) {
-  }
+  constructor(public authService: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     request = request.clone({
       setHeaders: {
-        'bearer-token': `${this.authService.token || ''}`,  // TODO: maybe call it bearer token
-        'client-time': new Date().toISOString()
-      }
+        authorizatio: `${this.authService.token || ''}`, // TODO: maybe call it bearer token
+        'client-time': new Date().toISOString(),
+        Accept: 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
     });
 
-    return next
-      .handle(request)
-      .pipe(catchError((error: any) => {
-
+    return next.handle(request).pipe(
+      catchError((error: any) => {
         if (error instanceof HttpErrorResponse) {
           if (error.status === 401) {
             this.authService.signOut();
@@ -32,7 +35,7 @@ export class AuthInterceptorService implements HttpInterceptor {
         }
 
         return throwError(error);
-
-      }));
+      })
+    );
   }
 }

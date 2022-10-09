@@ -6,9 +6,10 @@ export const environment = {
   production: false,
   appName: 'Cable Intern',
   api: {
-    url: ''
+    url: 'http://localhost:5000/api',
+    proxy: 'http://meteor03-prod.meteorit-leipzig.de:5001',
   },
-  website: ''
+  website: '',
 };
 
 /*
