@@ -77,7 +77,7 @@ export class LoginComponent {
     this.loading = true;
     this.message = 'logging in...';
 
-    this.apiService.post('', this.user.value).subscribe(
+    this.apiService.post('/login', this.user.value).subscribe(
       data => {
         // normal login
         this.authService.set(data.access_token);

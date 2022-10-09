@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://meteor03-prod.meteorit-leipzig.de:5001/login",
+    "target": "http://meteor03-prod.meteorit-leipzig.de:5001",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
