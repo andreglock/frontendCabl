@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   public newEntry(): void {
     const dialogRef = this.dialog.open(NewEntryPopupComponent, {
-      width: '550px',
+      width: '90%',
       data: {},
     });
 

@@ -7,7 +7,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./new-entry.popup.component.scss'],
 })
 export class NewEntryPopupComponent implements OnInit {
-  public readonly fields = [
+  public readonly firstRow = [
     {
       name: 'Volljährig',
       options: [
@@ -27,6 +27,9 @@ export class NewEntryPopupComponent implements OnInit {
         'nicht gefragt/dokumentiert',
       ],
     },
+  ];
+
+  public readonly secondRow = [
     {
       name: 'Wohnsituation',
       options: [
@@ -64,6 +67,9 @@ export class NewEntryPopupComponent implements OnInit {
         'ohne Versicherungsschutz (oder ungeklärt, sodass Patient*in nirgends Leistungen in Anspruch nimmt)',
       ],
     },
+  ];
+
+  public readonly thirdRow = [
     {
       name: 'NotvallV',
       options: ['Ja', 'Nein', 'nicht gefragt / dokumentiert'],
