@@ -82,7 +82,11 @@ export class LoginComponent {
         // normal login
         console.log(data);
         this.authService.set(data.access_token);
-        this.userService.set(data.user);
+        this.userService.set({
+          name: data.username,
+          email: data.email,
+          location: data.location,
+        });
         this.router.navigateByUrl('/').then();
       },
       error => {
