@@ -1,27 +1,27 @@
 import { Injectable } from '@angular/core';
 import { IUser } from './auth-module/user.model';
 import { Observable } from 'rxjs';
+import { ApiService } from './core-module';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserManagementService {
-  constructor() {}
-  create(user: IUser): Observable<IUser | undefined> {
-    return undefined;
+  constructor(private apiService: ApiService) {}
+
+  public create(user: IUser): Observable<IUser | undefined> {
+    return this.apiService.post('/users', { user });
   }
 
-  get(): Observable<IUser[]> {
-    return new Observable<IUser[]>(observer => {
-      observer.next([]);
-    });
+  public get(): Observable<IUser[]> {
+    return this.apiService.get('/users');
   }
 
-  udpate(user: IUser): Observable<IUser | undefined> {
-    return undefined;
+  public udpate(user: IUser): Observable<IUser | undefined> {
+    return this.apiService.post('/users', { user });
   }
 
-  delete(user: IUser): Observable<void> {
-    return undefined;
+  public delete(user: IUser): Observable<void> {
+    return this.apiService.post('/users', { user });
   }
 }

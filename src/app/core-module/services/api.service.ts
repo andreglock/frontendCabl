@@ -19,7 +19,7 @@ export class ApiService {
    * @return {Observable<any>}
    */
   get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    const url = `${this.server.url}/${this.proxy}${path}`;
+    const url = `/api/${path}`;
     return this.http.get(url, {
       params: params,
     });
@@ -34,7 +34,7 @@ export class ApiService {
    * @return {Observable<any>}
    */
   put(path: string, body: Object = {}, params: HttpParams = new HttpParams()): Observable<any> {
-    const url = `${this.server.url}${this.proxy}${path}`;
+    const url = `/api/${path}`;
     return this.http.put(url, body, {
       params: params,
     });
@@ -49,7 +49,7 @@ export class ApiService {
    * @return {Observable<any>}
    */
   patch(path: string, body: Object = {}, params: HttpParams = new HttpParams()): Observable<any> {
-    const url = `${this.server.url}${path}`;
+    const url = `/api/${path}`;
     return this.http.patch(url, body, {
       params: params,
     });
@@ -78,7 +78,7 @@ export class ApiService {
    * @return {Observable<any>}
    */
   delete(path: string, params: HttpParams = new HttpParams()): Observable<any> {
-    const url = `${this.server.url}${path}`;
+    const url = `/api/${path}`;
     return this.http.delete(url, {
       params: params,
     });
