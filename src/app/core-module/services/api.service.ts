@@ -64,7 +64,7 @@ export class ApiService {
    * @return {Observable<any>}
    */
   post(path: string, body: Object = {}, params: HttpParams = new HttpParams()): Observable<any> {
-    const url = `${this.server.url}${path}`;
+    const url = `/api/${path}`;
     return this.http.post(url, body, {
       params: params,
     });
