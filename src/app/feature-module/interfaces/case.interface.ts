@@ -1,4 +1,5 @@
 export interface ICase {
+  id?: number;
   datum: Date;
   volljarig: string;
   geschlecht: string;
