@@ -80,7 +80,6 @@ export class LoginComponent {
     this.apiService.post('', this.user.value).subscribe(
       data => {
         // normal login
-        console.log(data);
         this.authService.set(data.access_token);
         this.userService.set({
           name: data.username,
