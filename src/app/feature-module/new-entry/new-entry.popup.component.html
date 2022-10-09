@@ -1,14 +1,6 @@
 <div class="big-wrapper" >
 <div mat-dialog-content class="wrapper">
-    <h1 mat-dialog-title>New Case</h1>
-    volljarig: string,
-    geschlecht: string,
-    wohnsituation: string,
-    aufenthaltstatus: string,
-    krankenversicherung: string,
-    notvallv: string,
-    medivers: string,
-    fachbereich: string,
+    <h1 mat-dialog-title>Neuer Eintrag (Leipzig)</h1>
 
     <form>
       <mat-form-field appearance="fill">
@@ -19,26 +11,14 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Volljährig </mat-label>
-        <mat-select>
-          <mat-option *ngFor="let option of optionAges" [value]="option">
+      <mat-form-field appearance="fill" *ngFor="let field of fields">
+        <mat-label>{{field.name}} </mat-label>
+        <mat-select >
+          <mat-option *ngFor="let option of field.options" [value]="option" >
             {{option}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Geschlecht </mat-label>
-        <mat-select>
-          <mat-option *ngFor="let option of optionSex" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-
-
     </form>
     </div>
 
