@@ -1,0 +1,86 @@
+<div class="big-wrapper">
+  <div mat-dialog-content class="wrapper">
+    <h1 mat-dialog-title>Neuer Eintrag (Leipzig)</h1>
+    <form>
+      <div class="row">
+        <mat-form-field appearance="fill">
+          <mat-label>Datum</mat-label>
+          <input matInput [matDatepicker]="picker" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" *ngFor="let field of [age, sex]">
+          <mat-label>{{ field.name }} </mat-label>
+          <mat-select>
+            <mat-option *ngFor="let option of field.options" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <!-- living -->
+        <mat-form-field appearance="fill">
+          <mat-label>{{ living.name }} </mat-label>
+          <mat-select>
+            <mat-option *ngFor="let option of living.options" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- legalStatus -->
+        <mat-form-field appearance="fill">
+          <mat-label>{{ legalStatus.name }} </mat-label>
+          <mat-select (selectionChange)="checkLegalOtherSelected($event)">
+            <mat-option *ngFor="let option of legalStatus.options" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Andere</mat-label>
+          <textarea matInput placeholder="Ex. It makes me feel..." [disabled]="!isLegalOther"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="fill" *ngFor="let field of [insurance, emergencyInsurance, necessity]">
+          <mat-label>{{ field.name }} </mat-label>
+          <mat-select>
+            <mat-option *ngFor="let option of field.options" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <!-- medical area -->
+        <mat-form-field appearance="fill">
+          <mat-label>{{ medicalArea.name }} </mat-label>
+          <mat-select (selectionChange)="checkMedicalAreaOtherSelected($event)">
+            <mat-option *ngFor="let option of medicalArea.options" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Andere</mat-label>
+          <textarea matInput placeholder="Ex. It makes me feel..." [disabled]="!isMedicalOther"></textarea>
+        </mat-form-field>
+      </div>
+
+    </form>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-button (click)="save()" cdkFocusInitial>Save</button>
+  </div>
+</div>

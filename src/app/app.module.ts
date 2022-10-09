@@ -29,7 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {AppComponent} from './app.component';
 import {
   HeaderComponent,
-  HomeComponent
+  HomeComponent, NewEntryPopupComponent
 } from './feature-module';
 
 /************************************************************************************
@@ -55,7 +55,8 @@ import { CasesTableComponent } from './feature-module/cases-table/cases-table.co
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    CasesTableComponent
+    CasesTableComponent,
+    NewEntryPopupComponent
   ],
   imports: [
     BrowserModule,
